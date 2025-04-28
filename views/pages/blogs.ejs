@@ -1,0 +1,97 @@
+<%- include('../partials/header') %>
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+
+
+
+  <!-- Page Header -->
+  <header class="mb-12 text-center">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">All Blog Posts</h1>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      Explore our collection of insightful articles on technology, design, and development
+    </p>
+  </header>
+
+  <!-- Blog Posts Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <% blogs.forEach(blog => { %>
+      <article class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <!-- Blog Image -->
+        <div class="relative aspect-w-16 aspect-h-9">
+          <a href="/blog/<%= blog._id %>">
+            <img style="height: 200px;"
+              src="<%= blog.image %>" 
+              alt="<%= blog.title %>" 
+              class="w-full object-cover"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          </a>
+          <!-- Category Badge -->
+          <span class="absolute top-4 left-4 bg-amber-500 text-white text-xs px-3 py-1 rounded-full uppercase font-semibold tracking-wide">
+            <%= blog.category %>
+          </span>
+        </div>
+
+        <!-- Blog Content -->
+        <div class="p-6">
+          <!-- Date and Author -->
+          <div class="flex items-center text-sm text-gray-500 mb-3">
+            <span><%= profile.firstName %></span>
+            <span><%= profile.lastName %></span>
+            <span class="mx-2">•</span>
+            <time datetime="<%= blog.date.toISOString() %>">
+              <%= blog.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) %>
+            </time>
+          </div>
+
+          <!-- Title -->
+          <h2 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+            <a href="/blog/<%- blog._id %>" class="hover:text-amber-600 transition-colors">
+              <%= blog.title %>
+            </a>
+          </h2>
+
+          <!-- Excerpt -->
+          <p class="text-gray-600 mb-4 line-clamp-3">
+            <%- blog.content.substring(50, 100) %>...
+          </p>
+
+          <!-- Read More Button -->
+          <a href="/blog/<%=blog._id %>" class="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium">
+            Read more
+            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+
+  <!-- Pagination -->
+  <div class="mt-16 flex justify-center">
+    <nav class="flex items-center space-x-2">
+      <a href="#" class="px-4 py-2 rounded-md bg-amber-500 text-white font-medium">1</a>
+      <a href="#" class="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 font-medium">2</a>
+      <a href="#" class="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 font-medium">3</a>
+      <span class="px-4 py-2 text-gray-500">...</span>
+      <a href="#" class="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 font-medium">8</a>
+      <a href="#" class="px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 font-medium flex items-center">
+        Next
+        <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</section>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />

@@ -1,0 +1,48 @@
+purple-ui/  
+├── .gitignore                  # Ignore node_modules, dist, etc.  
+├── package.json                # Node.js dependencies and scripts  
+├── rollup.config.js            # Bundler config (or esbuild)  
+│  
+├── src/  
+│   ├── styles/                 # CSS/Styling foundations  
+│   │   ├── _colors.css         # Design tokens (CSS variables)  
+│   │   ├── _typography.css     # Font stacks, sizes, line heights  
+│   │   ├── _spacing.css        # Margins, paddings, grids  
+│   │   ├── _shadows.css        # Elevation styles  
+│   │   └── purple-ui.css       # Main CSS file (imports all)  
+│   │  
+│   ├── components/             # Reusable UI components  
+│   │   ├── Button/  
+│   │   │   ├── Button.js       # JavaScript logic  
+│   │   │   └── Button.css      # Component-specific styles  
+│   │   ├── Card/  
+│   │   │   ├── Card.js  
+│   │   │   └── Card.css  
+│   │   └── ...                 # Add more components  
+│   │  
+│   ├── utils/                  # Helper utilities  
+│   │   ├── dom.js              # DOM manipulation helpers  
+│   │   ├── theme.js            # Theme switching (light/dark)  
+│   │   └── validator.js        # Input validation logic  
+│   │  
+│   └── index.js                # Entry point (exports components)  
+│  
+├── dist/                       # Compiled output (auto-generated)  
+│   ├── purple-ui.min.js        # Bundled JavaScript  
+│   └── purple-ui.min.css       # Bundled CSS  
+│  
+├── examples/                   # Demo HTML/CSS/JS  
+│   ├── buttons.html            # Button component demos  
+│   ├── cards.html              # Card component demos  
+│   └── index.html              # Landing demo  
+│  
+├── docs/                       # Documentation  
+│   ├── getting-started.md      # Setup guide  
+│   ├── components.md           # Component API references  
+│   └── theming.md              # Customization guide  
+│  
+├── test/                       # Unit/integration tests  
+│   ├── Button.test.js          # Tests for Button component  
+│   └── Card.test.js  
+│  
+└── CHANGELOG.md                # Version history  

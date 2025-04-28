@@ -1,0 +1,211 @@
+   <%- include('../partials/header.ejs') %>
+
+<section class="about-section relative py-24 bg-gradient-to-br from-indigo-600 via-purple-700 to-indigo-800 overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+    <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <!-- Section header with animated underline -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-white mb-6 inline-block relative">
+        <span class="relative z-10">About Me</span>
+        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-underline"></span>
+      </h2>
+      <p class="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+        I specialize in crafting <span class="text-white font-medium">high-performance digital experiences</span> that blend innovative design with cutting-edge technology to deliver measurable business results.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Profile card with 3D hover effect -->
+      <div class="lg:col-span-5 group perspective-1000">
+        <div class="relative h-full transition-all duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+          <!-- Front side -->
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/10 flex flex-col items-center text-center backface-hidden h-full">
+            <div class="relative mb-6">
+              <img src="/images/eagle-logo.png" alt="Your Photo" class="rounded-full w-40 h-40 object-cover border-4 border-white/30 shadow-xl">
+              <div class="absolute -bottom-2 -right-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full p-2 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2"><%= name%></h3>
+            <p class="text-lg text-cyan-200 mb-4">Senior Full-Stack Developer</p>
+            <p class="text-gray-300 mb-6">Creating digital excellence since 2015</p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white hover:text-cyan-300 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
+              </a>
+              <a href="#" class="text-white hover:text-blue-400 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd" /></svg>
+              </a>
+              <a href="#" class="text-white hover:text-rose-500 transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Back side (visible on hover) -->
+          <div class="absolute inset-0 bg-gradient-to-br from-cyan-600 to-blue-700 rounded-2xl p-8 shadow-2xl backface-hidden transform rotate-y-180 flex flex-col justify-center items-center text-center">
+            <h3 class="text-2xl font-bold text-white mb-4">Professional Background</h3>
+            <ul class="space-y-3 text-gray-200">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 mr-2 text-cyan-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                8+ Years Experience
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 mr-2 text-cyan-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                50+ Projects Completed
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 mr-2 text-cyan-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Certified Developer
+              </li>
+            </ul>
+           <a href="/images/screencapture-localhost-8070-about-2025-04-28-20_34_47.png" target="_blank" class="mt-6 px-6 py-2 bg-white text-cyan-700 rounded-full font-medium hover:bg-gray-100 transition-colors inline-block">
+  View CV
+</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills and expertise -->
+      <div class="lg:col-span-7">
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/10">
+          <h3 class="text-2xl font-bold text-white mb-6">Technical Expertise</h3>
+          
+          <!-- Skill bars -->
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-lg font-medium text-white">Frontend Development</span>
+                <span class="text-lg font-bold text-cyan-300">95%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2.5 rounded-full animate-progress" style="width: 95%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-lg font-medium text-white">Backend Development</span>
+                <span class="text-lg font-bold text-cyan-300">90%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2.5 rounded-full animate-progress" style="width: 90%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-lg font-medium text-white">Mobile Development</span>
+                <span class="text-lg font-bold text-cyan-300">85%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2.5 rounded-full animate-progress" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div class="flex justify-between mb-2">
+                <span class="text-lg font-medium text-white">UI/UX Design</span>
+                <span class="text-lg font-bold text-cyan-300">80%</span>
+              </div>
+              <div class="w-full bg-gray-700 rounded-full h-2.5">
+                <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-2.5 rounded-full animate-progress" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tech stack icons -->
+          <h4 class="text-xl font-bold text-white mt-10 mb-4">Tech Stack</h4>
+          <div class="grid grid-cols-6 gap-4">
+            <div class="tech-icon group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="w-10 h-10 group-hover:scale-110 transition-transform">
+              <span class="tech-tooltip">React</span>
+            </div>
+            <div class="tech-icon group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="w-10 h-10 group-hover:scale-110 transition-transform">
+              <span class="tech-tooltip">Node.js</span>
+            </div>
+            <div class="tech-icon group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="w-10 h-10 group-hover:scale-110 transition-transform">
+              <span class="tech-tooltip">TypeScript</span>
+            </div>
+            <div class="tech-icon group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" class="w-10 h-10 group-hover:scale-110 transition-transform">
+              <span class="tech-tooltip">Flutter</span>
+            </div>
+            <div class="tech-icon group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="w-10 h-10 group-hover:scale-110 transition-transform">
+              <span class="tech-tooltip">MongoDB</span>
+            </div>
+            <div class="tech-icon group">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="w-10 h-10 group-hover:scale-110 transition-transform">
+              <span class="tech-tooltip">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience timeline -->
+    <div class="mt-20">
+      <h3 class="text-3xl font-bold text-white text-center mb-12">Professional Journey</h3>
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-cyan-400 to-blue-600"></div>
+        
+        <!-- Timeline items -->
+        <div class="space-y-12">
+          <!-- Item 1 -->
+          <div class="relative timeline-item">
+            <div class="timeline-dot bg-gradient-to-r from-cyan-400 to-blue-500"></div>
+            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 w-full md:w-5/12 ml-auto">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-lg font-bold text-white">Senior Developer</span>
+                <span class="text-sm text-cyan-300">2021 - Present</span>
+              </div>
+              <span class="text-blue-200 font-medium">Tech Innovations Inc.</span>
+              <p class="text-gray-300 mt-2">Leading a team of developers to build enterprise-level applications with React, Node.js, and microservices architecture.</p>
+            </div>
+          </div>
+          
+          <!-- Item 2 -->
+          <div class="relative timeline-item">
+            <div class="timeline-dot bg-gradient-to-r from-cyan-400 to-blue-500"></div>
+            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 w-full md:w-5/12">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-lg font-bold text-white">Full-Stack Developer</span>
+                <span class="text-sm text-cyan-300">2018 - 2021</span>
+              </div>
+              <span class="text-blue-200 font-medium">Digital Solutions LLC</span>
+              <p class="text-gray-300 mt-2">Developed and maintained web applications using Vue.js and Laravel, implementing RESTful APIs and improving performance by 40%.</p>
+            </div>
+          </div>
+          
+          <!-- Item 3 -->
+          <div class="relative timeline-item">
+            <div class="timeline-dot bg-gradient-to-r from-cyan-400 to-blue-500"></div>
+            <div class="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg border border-white/10 w-full md:w-5/12 ml-auto">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-lg font-bold text-white">Junior Developer</span>
+                <span class="text-sm text-cyan-300">2015 - 2018</span>
+              </div>
+              <span class="text-blue-200 font-medium">Web Craft Studios</span>
+              <p class="text-gray-300 mt-2">Built responsive websites and web applications using HTML, CSS, JavaScript, and PHP, while learning modern frameworks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <%- include('../partials/footer.ejs') %>

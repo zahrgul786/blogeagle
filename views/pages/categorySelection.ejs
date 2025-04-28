@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Category Selection</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> <!-- optional icons -->
+</head>
+<body class="bg-gradient-to-tr from-blue-50 via-white to-green-50 min-h-screen flex items-center justify-center">
+
+  <div class="w-full max-w-2xl p-6 bg-white rounded-2xl shadow-lg">
+    <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">✨ Choose Your Interests</h1>
+
+    <% if (messages.error) { %>
+      <div class="bg-red-100 text-red-800 p-3 rounded mb-4 font-semibold text-center">
+        <%= messages.error %>
+      </div>
+    <% } %>
+
+    <form action="/saveCategories" method="POST">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
+        <% categories.forEach((category) => { %>
+          <label class="cursor-pointer">
+            <input
+              type="checkbox"
+              name="selectedCategories"
+              value="<%= category %>"
+              class="peer hidden"
+            />
+            <div class="flex flex-col items-center justify-center w-full h-24 bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-xl shadow hover:bg-blue-200 transition-all duration-200
+                        peer-checked:bg-green-600 peer-checked:text-white peer-checked:shadow-lg peer-checked:ring-2 peer-checked:ring-offset-2 peer-checked:ring-green-400">
+              <i class="fas fa-check-circle text-xl mb-1 hidden peer-checked:block"></i>
+              <%= category %>
+            </div>
+          </label>
+        <% }) %>
+      </div>
+
+      <!-- Selected Display -->
+      <div id="selectedDisplay" class="mb-6 text-center text-sm text-gray-600 font-medium"></div>
+
+      <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-3 rounded-xl font-bold hover:from-green-600 hover:to-green-800 transition-all">
+        ✅ Save & Continue
+      </button>
+    </form>
+  </div>
+  <!-- JavaScript for Client-side Validation -->
+<script src="/js/createValidation.js"></script>
+</body>
+</html>
