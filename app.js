@@ -67,7 +67,7 @@ app.use(ExpressLayout);
 app.set("layout", "layout/main"); // Default layout
 
 // Serve static files (CSS, JS, images) from /public folder
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Apply Helmet for security
