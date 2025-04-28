@@ -17,6 +17,8 @@ const blogRoutes = require("./routes/blog");
 const MongoStore = require("connect-mongo");
 const path = require("path");
 
+
+app.set("trust proxy", 1);
 // Connect to MongoDB
 connectDb();
 
@@ -40,7 +42,8 @@ app.use(
     cookie: {
       maxAge: 24 * 60 * 60 * 1000, // 1 day
       httpOnly: true,
-      secure: false, // Set to true if using HTTPS
+  
+       secure: process.env.NODE_ENV === "production", // Secure cookies in production
     },
   })
 );
