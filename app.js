@@ -58,7 +58,8 @@ app.use((req, res, next) => {
 
 // Set EJS as templating engine
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views")); // Set views folder
+app.set("views", path.join(__dirname, "../views"));
+; // Set views folder
 
 // Enable EJS layouts
 app.use(ExpressLayout);
