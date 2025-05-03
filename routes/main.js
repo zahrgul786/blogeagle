@@ -2,24 +2,21 @@ const express = require("express");
 const routes = express.Router();
 const bcrypt = require("bcryptjs");
 const bodyParser = require("body-parser");
-const cookieParser = require('cookie-parser')
+const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const RateLimiter = require("express-rate-limit");
 const multer = require("multer");
-const Blog = require('../models/Blog')
+const Blog = require("../models/Blog");
 const { check, validationResult } = require("express-validator");
 const path = require("path");
-const csrf = require("csurf")
+const csrf = require("csurf");
 
 const User = require("../models/user");
 const userProfileDate = require("../models/userProfile");
 const categoryData = require("../models/userCategory");
 const { Router } = require("express");
 
-
-
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
-
 
 // Rate limiters
 const rateLimitSettings = {
@@ -37,7 +34,7 @@ const LoginAuthLimiter = RateLimiter({
   },
 });
 const csrfProtection = csrf({ cookie: true });
-routes.use(cookieParser())
+routes.use(cookieParser());
 const RegisterAuthLimiter = RateLimiter({
   ...rateLimitSettings,
   handler: (req, res) => {
@@ -78,13 +75,6 @@ routes.get("/", isAuthenticated, async (req, res) => {
   }
 });
 
-
-
-
-
-
-
-
 // Dashboard
 routes.get("/dashboard", isAuthenticated, (req, res) => {
   res.render("Dashboard", { title: "Dashboard" });
@@ -94,7 +84,7 @@ routes.get("/dashboard", isAuthenticated, (req, res) => {
 routes.get("/register", (req, res) => {
   res.render("pages/register", {
     title: "Register",
-    layout: "layout/main"
+    layout: "layout/main",
   });
 });
 
@@ -155,8 +145,7 @@ routes.post(
 );
 
 // GET Login
-routes.get("/login",csrfProtection,async (req, res) => {
-    
+routes.get("/login", csrfProtection, async (req, res) => {
   // console.log("Generated CSRF Token:", req.csrfToken());
   res.render("pages/login", {
     title: "Login",
@@ -167,7 +156,7 @@ routes.get("/login",csrfProtection,async (req, res) => {
 });
 
 // POST Login
-routes.post("/login",csrfProtection, LoginAuthLimiter, async (req, res) => {
+routes.post("/login", csrfProtection, LoginAuthLimiter, async (req, res) => {
   //  console.log("Received CSRF Token:", req.body._csrf);
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -201,9 +190,6 @@ routes.post("/login",csrfProtection, LoginAuthLimiter, async (req, res) => {
   // Both are completed, redirect to dashboard
   req.flash("success", "Successfully Logged In");
   return res.redirect("/"); // Dashboard
-
-
-  
 });
 
 // GET Logout
@@ -258,7 +244,6 @@ routes.post(
         },
         { upsert: true, new: true } // ✅ ensures it inserts if not found
       );
-
 
       res.redirect("/categorySelection");
     } catch (err) {
@@ -331,14 +316,13 @@ routes.post(
 
 routes.get("/profile", isAuthenticated, async (req, res) => {
   try {
-    const UserId = req.session.user.id
+    const UserId = req.session.user.id;
     // console.log(UserId);
-        const profile = await userProfileDate.findOne({
-          userId: UserId,
-        });
-    // console.log("Fetched profile:", profile); 
+    const profile = await userProfileDate.findOne({
+      userId: UserId,
+    });
+    // console.log("Fetched profile:", profile);
     // Fetch only blogs that belong to the logged-in user
-
 
     if (!profile) {
       req.flash("error", "Please complete your profile first.");
@@ -361,14 +345,12 @@ routes.get("/profile", isAuthenticated, async (req, res) => {
   }
 });
 
-
-routes.get('/contact', (req, res) => {
+routes.get("/contact", (req, res) => {
   res.render("pages/contact", {
     title: "muzamil Riaz",
     layout: "layout/main",
   });
-})
-
+});
 
 routes.get("/search", async (req, res) => {
   try {
@@ -453,20 +435,20 @@ routes.get("/search", async (req, res) => {
   }
 });
 
-routes.get('/about',async (req, res) => {
+routes.get("/about", async (req, res) => {
   const user = req.session.user.id;
   const profile = await userProfileDate.findOne({
     userId: user,
   });
-  const title = "about"
-  const name = "Muzammil Riaz"
+  const title = "about";
+  const name = "Muzammil Riaz";
   res.render("pages/about", {
     title,
     layout: "layout/main",
     name,
     user,
-    profile
+    profile,
   });
-})
+});
 
 module.exports = routes;

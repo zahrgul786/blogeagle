@@ -17,7 +17,6 @@ const blogRoutes = require("./routes/blog");
 const MongoStore = require("connect-mongo");
 const path = require("path");
 
-
 app.set("trust proxy", 1);
 // Connect to MongoDB
 connectDb();
@@ -27,7 +26,6 @@ app.use(cookieParser()); // Parse cookies
 app.use(express.urlencoded({ limit: "10mb", extended: true })); // Parse form data
 
 // Pass CSRF token to all views
-
 
 // Session configuration
 app.use(
@@ -42,8 +40,8 @@ app.use(
     cookie: {
       maxAge: 24 * 60 * 60 * 1000, // 1 day
       httpOnly: true,
-  
-       secure: process.env.NODE_ENV === "production", // Secure cookies in production
+
+      secure: process.env.NODE_ENV === "production", // Secure cookies in production
     },
   })
 );

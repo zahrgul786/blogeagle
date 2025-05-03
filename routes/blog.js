@@ -331,7 +331,7 @@ router.post("/blog/:id/like", async (req, res) => {
 
 
 // Add new blog (admin route)
-router.get("/add-blog", async (req, res) => {
+router.get("/addblog", async (req, res) => {
 const user = req.session.user;
 const profile = await userProfileDate.findOne({
       userId: req.session.user.id,
@@ -345,7 +345,7 @@ const title = "add-blog"
   });
 });
 
-router.post("/add-blog", upload.single("image"), async (req, res) => {
+router.post("/addblog", upload.single("image"), async (req, res) => {
   try {
     const { title, content } = req.body;
     const image = req.file ? "/uploads/" + req.file.filename : "";
