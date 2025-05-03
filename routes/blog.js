@@ -335,7 +335,7 @@ router.get("/addblog", async (req, res) => {
 const user = req.session.user;
 const profile = await userProfileDate.findOne()
 const title = "add-blog"
-  res.render("pages/addBlog", {
+  res.render("addBlog", {
     title,
     layout: "layout/main",
     profile,
