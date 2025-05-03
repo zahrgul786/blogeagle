@@ -16,7 +16,7 @@ const cookieParser = require("cookie-parser");
 const blogRoutes = require("./routes/blog");
 const MongoStore = require("connect-mongo");
 const path = require("path");
-
+const serverless = require("serverless-http");
 app.set("trust proxy", 1);
 // Connect to MongoDB
 connectDb();
@@ -58,7 +58,7 @@ app.use((req, res, next) => {
 
 // Set EJS as templating engine
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "../views"));
+app.set("views", path.join(__dirname, "views"));
 ; // Set views folder
 
 // Enable EJS layouts
@@ -121,7 +121,5 @@ app.use("", mainRoute);
 app.use("/", blogRoutes);
 
 // Start the server
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+module.exports = app;
+module.exports.handler = serverless(app);

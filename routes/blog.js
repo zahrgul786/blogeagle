@@ -333,9 +333,7 @@ router.post("/blog/:id/like", async (req, res) => {
 // Add new blog (admin route)
 router.get("/addblog", async (req, res) => {
 const user = req.session.user;
-const profile = await userProfileDate.findOne({
-      userId: req.session.user.id,
-    })
+const profile = await userProfileDate.findOne()
 const title = "add-blog"
   res.render("pages/addBlog", {
     title,
